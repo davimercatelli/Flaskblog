@@ -5,6 +5,7 @@ from flask_login import LoginManager
 from flask_mail import Mail, Message
 from flaskblog.config import Config
 
+
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
