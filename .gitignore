@@ -2,3 +2,7 @@ __pycache__/
 /flaskproject/flaskblog/__pycache__/
 flaskblog/__init__.py.save
 flaskblog/routes.py.save
+gitignore.swp
+flaskblog/static/.main.css.swp
+flaskblog/static/images/computer.png
+flaskblog/templates/.layout.html.swp
