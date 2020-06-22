@@ -13,15 +13,12 @@ h1, h2, h3, h4, h5, h6 {
 	color: #444444;
 }
 
-.navbar {
-	height: 60px;
-}
-
 .site-header .navbar-nav .nav-link {
 	color: #696969;
 }
 
 .site-header .navbar-nav .nav-link:hover {
+	background-color: #d3d3d3;
 	color: #000;
 }
 
