@@ -47,3 +47,15 @@ class Post(db.Model):
 	def __repr__(self):
 		return f"Post('{self.title}', '{self.date_posted}')"
 
+
+
+from flaskblog import admin
+from flask_admin.contrib.sqla import ModelView
+
+
+class MyModelView(ModelView):
+	def is_accessible(self):
+		return login.current_user.is_authenticated()
+
+admin.add_view(ModelView(User, db.session))
+admin.add_view(ModelView(Post, db.session))
