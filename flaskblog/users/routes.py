@@ -8,7 +8,6 @@ from flaskblog.users.utils import save_picture, send_reset_email
 
 users = Blueprint('users', __name__)
 
-
 @users.route("/register", methods=['GET', 'POST'])
 def register():
 	if current_user.is_authenticated:
@@ -33,7 +32,7 @@ def login():
 		user = User.query.filter_by(email=form.email.data).first()
 		if user and bcrypt.check_password_hash(user.password, form.password.data):
 			login_user(user, remember=form.remember.data)
-			next_page = request.args.get('next')
+			next_page = request.args.get('next') or url_for('admin.index')
 			return redirect(next_page) if next_page else redirect(url_for('main.home'))
 		else:
 			flash('Login Unsuccessful. Please check email and password', 'danger')

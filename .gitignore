@@ -6,3 +6,5 @@ gitignore.swp
 flaskblog/static/.main.css.swp
 flaskblog/static/images/computer.png
 flaskblog/templates/.layout.html.swp
+flaskblog/users/routes.py.save
+flaskblog/templates/.my_master.html.swp
