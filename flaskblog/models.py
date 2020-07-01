@@ -7,7 +7,9 @@ from flask_admin.menu import MenuLink
 from flask_admin.contrib.sqla import ModelView
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flaskblog.config import Config
+import os
 
+EMAIL_ADMIN = os.environ.get('EMAIL_ADMIN')
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -69,10 +71,9 @@ class Post(db.Model):
 		return f"Post('{self.title}', '{self.date_posted}')"
 
 
-
 class MyAdminIndexView(AdminIndexView):
 	def is_accessible(self):
-		return current_user.is_authenticated and current_user.is_active and (current_user.email == 'admin@cu.com')
+		return current_user.is_authenticated and current_user.is_active and (current_user.email == EMAIL_ADMIN)
 
 	def inaccessible_callback(self, name, **kwargs):
 		return redirect(url_for('users.login'))
@@ -80,7 +81,7 @@ class MyAdminIndexView(AdminIndexView):
 
 class MyModelView(ModelView):
 	def is_accessible(self):
-		return current_user.is_authenticated and current_user.is_active and (current_user.email == 'admin@cu.com')
+		return current_user.is_authenticated and current_user.is_active and (current_user.email == EMAIL_ADMIN)
 
 	def inaccessible_callback(self, name, **kwargs):
 		return redirect(url_for('users.login'))
@@ -93,15 +94,8 @@ class MyUserModelView(MyModelView):
 	can_delete = True
 	create_modal = True
 
+	def on_model_change(self, form, model, is_created):
+		model.password = bcrypt.generate_password_hash(model.password).decode('utf-8')
+
 admin.add_view(MyUserModelView(User, db.session))
 admin.add_view(MyUserModelView(Post, db.session))
-
-'''
-		return current_user.is_authenticated and current_user.is_active and value
-		if environ.get('EMAIL_ADMIN'):
-		if (current_user.email == 'admin@cu.com'):
-		if current_app.config['EMAIL_ADMIN']:
-			return current_user.is_authenticated and current_user.is_active
-			return current_user.is_authenticated and current_user.is_active and (current_user.email == 'admin@cu.com')
-			s = Serializer(current_app.config['SECRET_KEY'], expires_sec)
-'''

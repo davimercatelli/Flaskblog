@@ -1,11 +1,5 @@
 from flask import Blueprint, render_template
 
-
-social = {'facebook': ('https://www.facebook.com/davi.mercatelli', 'fab fa-facebook-square'),
-		'instagram': ('https://www.instagram.com/davi_mercatelli/', 'fab fa-instagram'),
-		'linkedin': ('https://www.linkedin.com/in/davi-mercatelli/', 'fab fa-linkedin')}
-
-
 errors = Blueprint('errors', __name__)
 
 @errors.app_errorhandler(404)
