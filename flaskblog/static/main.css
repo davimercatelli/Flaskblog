@@ -18,7 +18,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-header .navbar-nav .nav-link:hover {
-	background-color: #d3d3d3;
 	color: #000;
 }
 
@@ -33,6 +32,7 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: 10px;
 	margin-bottom: 20px;
 }
+
 
 .article-title {
 	color: #696969;
@@ -59,8 +59,15 @@ a.article-title:hover {
 .article-metadata {
 	padding-bottom: 1px;
 	margin-bottom: 4px;
-	border-bottom: 1px solid #e3e3e3
+	border-bottom: 1px solid #e3e3e3;
 }
+
+.article-metadata {
+	padding-bottom: 1px;
+	margin-bottom: 4px;
+	border-bottom: 1px solid #e3e3e3;
+}
+
 
 .article-metadata a:hover {
 	color: #333;
@@ -93,13 +100,25 @@ a.article-title:hover {
 	height: 36px;
 	text-align: center;
 	text-decoration: none;
-	align: center;
-
 }
 
 .fa:hover {
-	opacity: 0.7;
+	opacity: 0.95;
 	text-decoration: none;
+}
+
+.social-media-list {
+	list-style-type: none;
+	margin: 0 70px;
+	padding: 0;
+	font-size: 0px;
+	justify-content: center;
+	align-items: center;
+}
+
+.social-media-list li {
+	margin: 2px;
+	display: inline-block;
 }
 
 .fa-linkedin {
@@ -107,30 +126,60 @@ a.article-title:hover {
 	color: white;
 }
 
-
 .fa-github {
 	background: #000;
 	color: white;
 }
 
 .fa-facebook {
-	background: #3B5998;
+	background: #3b5999;
 	color: white;
 }
 
-.ul.social-media-list {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	font-size: 0px;
+
+.fa-youtube {
+	background: #bb0000;
+	color: white;
 }
 
-ul.social-media-list li {
-	margin: 2px;
-	display: inline-block;
-	align-items: center;
-	justify-content: center;
+.dropdown {
+	list-style: none;
+	background: transparent;
+	color: black;
 }
+
+.dropdown .nav-link {
+	color:#696969;
+	text-decoration: none;
+}
+
+.dropdown .btn {
+	background: transparent;
+	color: #696969;
+	border: none;
+	outline: none;
+	border-radius: 0px;
+	padding: 8px 16px;
+	background-color: inherit;
+	font-family: inherit;
+	margin: 0;
+}
+
+
+.dropdown-menu .dropdown-item {
+	display: inline-block;
+	width: 100%;
+	padding: 10px 10px;
+	color: #696969;
+}
+
+.dropdown-item:hover {
+	background: transparent;
+	color: #000;
+}
+
+
+
 
 
 
