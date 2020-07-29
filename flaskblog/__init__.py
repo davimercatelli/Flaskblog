@@ -7,6 +7,8 @@ from flask_login import LoginManager
 from flask_mail import Mail, Message
 from flaskblog.config import Config
 
+from flask_misaka import Misaka
+from flask_pagedown import PageDown
 
 db = SQLAlchemy()
 admin = Admin(name='Mercatelli', template_mode='bootstrap3')
@@ -14,8 +16,10 @@ bcrypt = Bcrypt()
 login_manager = LoginManager()
 login_manager.login_view = 'users.login'
 login_manager.login_message_category = 'info'
-mail = Mail()
 
+mail = Mail()
+pagedown = PageDown()
+md = Misaka()
 
 def create_app(config_class=Config):
 
@@ -26,6 +30,9 @@ def create_app(config_class=Config):
 	bcrypt.init_app(app)
 	login_manager.init_app(app)
 	mail.init_app(app)
+
+	md.init_app(app)
+	pagedown.init_app(app)
 
 	from flaskblog.models import MyAdminIndexView
 	admin.init_app(app,index_view=MyAdminIndexView())
