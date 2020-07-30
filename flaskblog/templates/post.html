@@ -13,7 +13,7 @@
 					</div>
 				{% endif %}
 			</div>
-			<h2 class="article-title">{{ post.title }}</h2>
+			<h2 class="article-title mdhtmlform-md">{{ post.title | markdown }}</h2>
 			<p class="article-content mdhtmlform-md">{{ post.content | markdown }}<p>
 		</div>
 	</article>

@@ -7,7 +7,11 @@ from flask_login import LoginManager
 from flask_mail import Mail, Message
 from flaskblog.config import Config
 
+import misaka
+from misaka import (EXT_MATH)
 from flask_misaka import Misaka
+
+
 from flask_pagedown import PageDown
 
 db = SQLAlchemy()
